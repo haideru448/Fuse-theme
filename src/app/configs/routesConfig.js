@@ -38,6 +38,11 @@ const routes = [
     auth: settingsConfig.defaultAuth,
   },
   {
+    path: '/dashboards/settings/:id',
+    element: <SettingsPage />,
+    auth: settingsConfig.defaultAuth,
+  },
+  {
     path: 'loading',
     element: <FuseLoading />,
   },

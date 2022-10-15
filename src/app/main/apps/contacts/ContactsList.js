@@ -30,6 +30,7 @@ function ContactsList(props) {
       animate={{ y: 0, opacity: 1, transition: { delay: 0.2 } }}
       className="flex flex-col flex-auto w-full max-h-full"
     >
+      
       {Object.entries(groupedFilteredContacts).map(([key, group]) => {
         return (
           <div key={key} className="relative">

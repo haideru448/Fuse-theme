@@ -34,10 +34,14 @@ import OutlinedInput from '@mui/material/OutlinedInput';
 import InputLabel from '@mui/material/InputLabel';
 import InputAdornment from '@mui/material/InputAdornment';
 import FormControl from '@mui/material/FormControl';
+import history from '@history';
 
-export default function IconMenu({ setChoosenOption }) {
+// import { useNavigate } from 'react-router-dom';
+
+export default function IconMenu() {
+  // const history = useNavigate();
   return (
-    <Paper sx={{ width: 500, maxWidth: '100%', height: '100%' }}>
+    <Paper sx={{ width: '100%', height: 'auto' }}>
       <Box sx={{ background: '#D3D3D3', display: 'flex', justifyContent: 'center' }}>
         <FormControl sx={{ m: 1, width: '80%' }} variant='outlined'>
           <InputLabel htmlFor='outlined-adornment-search'>Search</InputLabel>
@@ -57,7 +61,10 @@ export default function IconMenu({ setChoosenOption }) {
         </FormControl>
       </Box>
       <MenuList>
-        <MenuItem onClick={() => setChoosenOption('company')}>
+        <MenuItem
+          onClick={() => {
+            history.push('dashboards/settings/1');
+          }}>
           <ListItemIcon>
             <BusinessIcon fontSize='small' />
           </ListItemIcon>
@@ -77,7 +84,7 @@ export default function IconMenu({ setChoosenOption }) {
           </Typography> */}
         </MenuItem>
 
-        <MenuItem onClick={() => setChoosenOption('localization')}>
+        <MenuItem onClick={() => history.push('dashboards/settings/2')}>
           <ListItemIcon>
             <LanguageIcon fontSize='small' />
           </ListItemIcon>
@@ -87,7 +94,7 @@ export default function IconMenu({ setChoosenOption }) {
           </Typography> */}
         </MenuItem>
 
-        <MenuItem onClick={() => setChoosenOption('online payments')}>
+        <MenuItem onClick={() => history.push('dashboards/settings/3')}>
           <ListItemIcon>
             <WalletIcon fontSize='small' />
           </ListItemIcon>
@@ -97,7 +104,7 @@ export default function IconMenu({ setChoosenOption }) {
           </Typography> */}
         </MenuItem>
 
-        <MenuItem onClick={() => setChoosenOption('tax')}>
+        <MenuItem onClick={() => history.push('dashboards/settings/4')}>
           <ListItemIcon>
             <PercentIcon fontSize='small' />
           </ListItemIcon>
@@ -109,7 +116,7 @@ export default function IconMenu({ setChoosenOption }) {
 
         {/* product settings */}
 
-        <MenuItem onClick={() => setChoosenOption('product settings')}>
+        <MenuItem onClick={() => history.push('dashboards/settings/5')}>
           <ListItemIcon>
             <ViewInArIcon fontSize='small' />
           </ListItemIcon>
@@ -119,7 +126,7 @@ export default function IconMenu({ setChoosenOption }) {
           </Typography> */}
         </MenuItem>
 
-        <MenuItem onClick={() => setChoosenOption('tax settings')}>
+        <MenuItem onClick={() => history.push('dashboards/settings/6')}>
           <ListItemIcon>
             <AccessTimeIcon fontSize='small' />
           </ListItemIcon>
@@ -128,8 +135,8 @@ export default function IconMenu({ setChoosenOption }) {
             ⌘X
           </Typography> */}
         </MenuItem>
-        
-        <MenuItem onClick={() => setChoosenOption('expense settings')}>
+
+        <MenuItem onClick={() => history.push('dashboards/settings/7')}>
           <ListItemIcon>
             <InsertDriveFileIcon fontSize='small' />
           </ListItemIcon>
@@ -219,7 +226,7 @@ export default function IconMenu({ setChoosenOption }) {
           </Typography> */}
         </MenuItem>
         {/* email settings */}
-        <MenuItem onClick={() => setChoosenOption('email settings')}>
+        <MenuItem onClick={() => history.push('dashboards/settings/8')}>
           <ListItemIcon>
             <EmailIcon fontSize='small' />
           </ListItemIcon>
