@@ -5,12 +5,9 @@ import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
-import CloudUploadIcon from '@mui/icons-material/CloudUpload';
-import InsertDriveFileIcon from '@mui/icons-material/InsertDriveFile';
 import history from '@history';
-import Details from './companyDetailForms/details';
-import Address from './companyDetailForms/address';
-import Defaults from './companyDetailForms/defaults';
+import Settings from './userDetailsForms/settings';
+import Address from './userDetailsForms/address';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -64,7 +61,7 @@ export default function BasicTabs() {
         }}
       >
         <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
-          <Typography sx={{ mb: '20px', fontSize: '20px' }}>Workflow Settings</Typography>
+          <Typography sx={{ mb: '20px', fontSize: '20px' }}>User Details</Typography>
           <Box>
             <Button>Save</Button>
             <Button onClick={() => history.push('dashboards/settings')}>Cancel</Button>
@@ -72,33 +69,15 @@ export default function BasicTabs() {
         </Box>
 
         <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
-          <Tab label="Details" {...a11yProps(0)} />
-          <Tab label="Address" {...a11yProps(1)} />
-          <Tab label="Logo" {...a11yProps(2)} />
-          <Tab label="Defaults" {...a11yProps(3)} />
-          <Tab label="Documents" {...a11yProps(4)} />
+          <Tab label="Details" {...a11yProps(0)} sx={{ width: '50%' }} />
+          <Tab label="Notifications" {...a11yProps(1)} sx={{ width: '50%' }} />
         </Tabs>
       </Box>
       <TabPanel value={value} index={0}>
-        <Details />
+        <Settings />
       </TabPanel>
       <TabPanel value={value} index={1}>
         <Address />
-      </TabPanel>
-      <TabPanel value={value} index={2}>
-        <Button variant="contained" fullWidth>
-          <CloudUploadIcon sx={{ mr: '10px' }} />
-          Upload Logo
-        </Button>
-      </TabPanel>
-      <TabPanel value={value} index={3}>
-        <Defaults />
-      </TabPanel>
-      <TabPanel value={value} index={4}>
-        <Button variant="contained" fullWidth>
-          <InsertDriveFileIcon sx={{ mr: '10px' }} />
-          Upload File
-        </Button>{' '}
       </TabPanel>
     </Box>
   );

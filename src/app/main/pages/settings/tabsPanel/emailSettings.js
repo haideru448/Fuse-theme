@@ -20,9 +20,11 @@ import ListItemText from '@mui/material/ListItemText';
 import Grid from '@mui/material/Grid';
 import EmailIcon from '@mui/icons-material/Email';
 import Switch from '@mui/material/Switch';
+import Button from '@mui/material/Button';
+import history from '@history';
 
 const bull = (
-  <Box component="span" sx={{ display: 'inline-block', mx: '2px', transform: 'scale(0.8)' }}>
+  <Box component='span' sx={{ display: 'inline-block', mx: '2px', transform: 'scale(0.8)' }}>
     •
   </Box>
 );
@@ -43,10 +45,10 @@ const label = { inputProps: { 'aria-label': 'Switch demo' } };
 // )
 
 function generate(element) {
-  return [0, 1,2].map((value) =>
+  return [0, 1, 2].map((value) =>
     React.cloneElement(element, {
       key: value,
-    })
+    }),
   );
 }
 
@@ -65,69 +67,44 @@ export default function OutlinedCard() {
   return (
     <Box sx={{ width: '100%' }}>
       <Box sx={{ background: '#D3D3D3' }}>
-        <Typography variant="h6" sx={{ padding: '20px' }} component="div">
-          Email Settings
-        </Typography>
+        <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
+          <Typography sx={{ mb: '20px', fontSize: '20px', paddingLeft: '20px', paddingTop: '10px' }}>
+            Email Settings
+          </Typography>
+          <Box>
+            <Button>Save</Button>
+            <Button onClick={() => history.push('dashboards/settings')}>Cancel</Button>
+          </Box>
+        </Box>
       </Box>
-      <Box sx={{ minWidth: 275, pl: '20px',mt:'20px', pr: '20px' }}>
-        <Card variant="outlined">
+      <Box sx={{ minWidth: 275, pl: '20px', mt: '20px', pr: '20px' }}>
+        <Card variant='outlined'>
           {' '}
           <CardContent>
-            <TextField
-              id="standard-basic"
-              label="From Name"
-              variant="standard"
-              fullWidth
-              sx={{ mb: '20px' }}
-            />
+            <TextField id='standard-basic' label='From Name' variant='standard' fullWidth sx={{ mb: '20px' }} />
 
-            <TextField
-              id="standard-basic"
-              label="Reply-To Name"
-              variant="standard"
-              fullWidth
-              sx={{ mb: '20px' }}
-            />
+            <TextField id='standard-basic' label='Reply-To Name' variant='standard' fullWidth sx={{ mb: '20px' }} />
 
-            <TextField
-              id="standard-basic"
-              label="Reply-To Email"
-              variant="standard"
-              fullWidth
-              sx={{ mb: '20px' }}
-            />
+            <TextField id='standard-basic' label='Reply-To Email' variant='standard' fullWidth sx={{ mb: '20px' }} />
 
-            <TextField
-              id="standard-basic"
-              label="BCC Email"
-              variant="standard"
-              fullWidth
-              sx={{ mb: '20px' }}
-            />
+            <TextField id='standard-basic' label='BCC Email' variant='standard' fullWidth sx={{ mb: '20px' }} />
 
-            <TextField
-              id="standard-basic"
-              label="Send Time"
-              variant="standard"
-              fullWidth
-              sx={{ mb: '20px' }}
-            />
+            <TextField id='standard-basic' label='Send Time' variant='standard' fullWidth sx={{ mb: '20px' }} />
           </CardContent>
         </Card>
 
-        <Card variant="outlined" sx={{ mt: '20px' }}>
+        <Card variant='outlined' sx={{ mt: '20px' }}>
           {' '}
           <CardContent>
-            <FormControl variant="standard" sx={{ width: '100%' }}>
-              <InputLabel id="demo-simple-select-standard-label">Email Design</InputLabel>
+            <FormControl variant='standard' sx={{ width: '100%' }}>
+              <InputLabel id='demo-simple-select-standard-label'>Email Design</InputLabel>
               <Select
-                labelId="demo-simple-select-standard-label"
-                id="demo-simple-select-standard"
+                labelId='demo-simple-select-standard-label'
+                id='demo-simple-select-standard'
                 value={age}
                 onChange={handleChange}
-                label="Age"
-              >
-                <MenuItem value="">
+                label='Age'>
+                <MenuItem value=''>
                   <em>None</em>
                 </MenuItem>
                 <MenuItem value={10}>Ten</MenuItem>
@@ -137,9 +114,9 @@ export default function OutlinedCard() {
             </FormControl>
 
             <TextField
-              id="standard-basic"
-              label="Email Signature"
-              variant="standard"
+              id='standard-basic'
+              label='Email Signature'
+              variant='standard'
               fullWidth
               InputProps={{ sx: { height: 130 } }}
             />
@@ -153,19 +130,15 @@ export default function OutlinedCard() {
                 <ListItem
                   sx={{ pt: '20px', pb: '20px' }}
                   secondaryAction={
-                    <IconButton edge="end" aria-label="delete">
+                    <IconButton edge='end' aria-label='delete'>
                       <Switch {...label} defaultChecked />
                     </IconButton>
-                  }
-                >
+                  }>
                   <ListItemAvatar>
                     <EmailIcon />
                   </ListItemAvatar>
-                  <ListItemText
-                    primary="Attach PDF"
-                    secondary={secondary ? 'Secondary text' : null}
-                  />
-                </ListItem>
+                  <ListItemText primary='Attach PDF' secondary={secondary ? 'Secondary text' : null} />
+                </ListItem>,
               )}
             </List>
           </Demo>

@@ -5,23 +5,20 @@ import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
-import CloudUploadIcon from '@mui/icons-material/CloudUpload';
-import InsertDriveFileIcon from '@mui/icons-material/InsertDriveFile';
+import history from '@history';
 import Settings from './localizationForms/settings';
 import Address from './companyDetailForms/address';
-import Defaults from './companyDetailForms/defaults';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
   return (
     <div
-      role="tabpanel"
+      role='tabpanel'
       hidden={value !== index}
       id={`simple-tabpanel-${index}`}
       aria-labelledby={`simple-tab-${index}`}
-      {...other}
-    >
+      {...other}>
       {value === index && (
         <Box sx={{ p: 3 }}>
           <Typography>{children}</Typography>
@@ -60,14 +57,18 @@ export default function BasicTabs() {
           background: '#D3D3D3',
           pl: '20px',
           pt: '10px',
-        }}
-      >
-        <Typography sx={{ mb: '20px', fontSize: '20px' }}>Localization</Typography>
+        }}>
+        <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
+          <Typography sx={{ mb: '20px', fontSize: '20px' }}>Location Settings</Typography>
+          <Box>
+            <Button>Save</Button>
+            <Button onClick={() => history.push('dashboards/settings')}>Cancel</Button>
+          </Box>
+        </Box>
 
-        <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
-          <Tab label="Settings" {...a11yProps(0)} sx={{width:'50%'}}/>
-          <Tab label="Custom Label" {...a11yProps(1)} sx={{width:'50%'}}/>
-      
+        <Tabs value={value} onChange={handleChange} aria-label='basic tabs example'>
+          <Tab label='Settings' {...a11yProps(0)} sx={{ width: '50%' }} />
+          <Tab label='Custom Label' {...a11yProps(1)} sx={{ width: '50%' }} />
         </Tabs>
       </Box>
       <TabPanel value={value} index={0}>
@@ -76,7 +77,6 @@ export default function BasicTabs() {
       <TabPanel value={value} index={1}>
         <Address />
       </TabPanel>
-   
     </Box>
   );
 }

@@ -74,7 +74,7 @@ export default function IconMenu() {
           </Typography> */}
         </MenuItem>
 
-        <MenuItem>
+        <MenuItem onClick={() => history.push('dashboards/settings/11')}>
           <ListItemIcon>
             <PersonIcon fontSize='small' />
           </ListItemIcon>
@@ -146,7 +146,7 @@ export default function IconMenu() {
           </Typography> */}
         </MenuItem>
 
-        <MenuItem>
+        <MenuItem onClick={() => history.push('dashboards/settings/9')}>
           <ListItemIcon>
             <CommitIcon fontSize='small' />
           </ListItemIcon>
@@ -156,7 +156,7 @@ export default function IconMenu() {
           </Typography> */}
         </MenuItem>
 
-        <MenuItem>
+        <MenuItem onClick={() => history.push('dashboards/settings/10')}>
           <ListItemIcon>
             <ImportExportIcon fontSize='small' />
           </ListItemIcon>

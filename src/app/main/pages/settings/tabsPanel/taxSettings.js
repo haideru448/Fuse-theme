@@ -14,15 +14,13 @@ import IconButton from '@mui/material/IconButton';
 import { styled } from '@mui/material/styles';
 import PercentIcon from '@mui/icons-material/Percent';
 
-
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemAvatar from '@mui/material/ListItemAvatar';
-import ListItemText from '@mui/material/ListItemText';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
-import EmailIcon from '@mui/icons-material/Email';
 import Switch from '@mui/material/Switch';
+import history from '@history';
 
 const bull = (
   <Box component="span" sx={{ display: 'inline-block', mx: '2px', transform: 'scale(0.8)' }}>
@@ -68,12 +66,20 @@ export default function OutlinedCard() {
   return (
     <Box sx={{ width: '100%' }}>
       <Box sx={{ background: '#D3D3D3' }}>
-        <Typography variant="h6" sx={{ padding: '20px' }} component="div">
-          Tax Settings
-        </Typography>
+        <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
+          <Typography
+            sx={{ mb: '20px', fontSize: '20px', paddingLeft: '20px', paddingTop: '10px' }}
+          >
+            Tax Settings
+          </Typography>
+          <Box>
+            <Button>Save</Button>
+            <Button onClick={() => history.push('dashboards/settings')}>Cancel</Button>
+          </Box>
+        </Box>
       </Box>
 
-      <Card variant="outlined" sx={{ m:'20px 20px 20px 20px' }}>
+      <Card variant="outlined" sx={{ m: '20px 20px 20px 20px' }}>
         {' '}
         <CardContent>
           <FormControl variant="standard" sx={{ width: '100%', mb: '20px' }}>
@@ -128,11 +134,10 @@ export default function OutlinedCard() {
                     </ListItemAvatar>
                     <Typography>
                       Inclusive Taxes <br />
-                      Exclusive: 100+10% =100 + 10<br />
+                      Exclusive: 100+10% =100 + 10
+                      <br />
                       Inclusive: 100+10% =90.91 + 9.09
-
                     </Typography>
-
                   </ListItem>
                 )}
               </List>

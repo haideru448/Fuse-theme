@@ -14,6 +14,7 @@ import ListItem from '@mui/material/ListItem';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import Switch from '@mui/material/Switch';
+import history from '@history';
 
 const listFollowingTextStyles = {
   color: '#D3D3D3',
@@ -64,9 +65,15 @@ export default function TaxSettings() {
   return (
     <Box sx={{ width: '100%' }}>
       <Box sx={{ background: '#D3D3D3' }}>
-        <Typography variant="h6" sx={{ padding: '20px' }} component="div">
-          Expense Settings
-        </Typography>
+      <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
+          <Typography sx={{ mb: '20px', fontSize: '20px',paddingLeft: '20px',
+    paddingTop: '10px', }}>Expense Settings</Typography>
+          <Box>
+            <Button>Save</Button>
+            <Button onClick={() => history.push('dashboards/settings')}>Cancel</Button>
+          </Box>
+        </Box>
+
       </Box>
       <Box sx={{ pl: '20px', pr: '20px' }}>
         <Card variant="outlined" sx={{ m: '20px 0 20px 0' }}>

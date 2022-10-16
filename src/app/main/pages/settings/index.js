@@ -13,6 +13,10 @@ import TaskSettings from './tabsPanel/taskSettings';
 import ExpenseSettings from './tabsPanel/expenseSettings';
 import EmailSettings from './tabsPanel/emailSettings';
 import LocalizationSettings from './tabsPanel/localizationSettings';
+import WorkflowSettings from './tabsPanel/workflowSettings';
+import ImportExportSettings from './tabsPanel/importExport';
+import UserDetails from './tabsPanel/userDetails';
+
 
 // import ContactsSidebarContent from './ContactsSidebarContent';
 // import ContactsHeader from '../../apps/contacts';
@@ -47,7 +51,11 @@ const Main = () => {
     <Root
       // header={<ContactsHeader pageLayout={pageLayout} />}
       content={
-        <LeftPanel setChoosenOption={setChoosenOption} selectedOption={selectedOption} displayMenu={displayMenu} />
+        <LeftPanel
+          setChoosenOption={setChoosenOption}
+          selectedOption={selectedOption}
+          displayMenu={displayMenu}
+        />
       }
       ref={pageLayout}
       rightSidebarContent={
@@ -60,6 +68,9 @@ const Main = () => {
           {routeParams.id === '7' && <ExpenseSettings />}
           {routeParams.id === '8' && <EmailSettings />}
           {routeParams.id === '2' && <LocalizationSettings />}
+          {routeParams.id === '9' && <WorkflowSettings />}
+          {routeParams.id === '10' && <ImportExportSettings />}
+          {routeParams.id === '11' && <UserDetails />}
         </>
       }
       rightSidebarOpen={rightSidebarOpen}
