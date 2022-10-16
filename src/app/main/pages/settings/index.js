@@ -16,7 +16,7 @@ import LocalizationSettings from './tabsPanel/localizationSettings';
 import WorkflowSettings from './tabsPanel/workflowSettings';
 import ImportExportSettings from './tabsPanel/importExport';
 import UserDetails from './tabsPanel/userDetails';
-
+import DeviceSettings from './tabsPanel/deviceSettings';
 
 // import ContactsSidebarContent from './ContactsSidebarContent';
 // import ContactsHeader from '../../apps/contacts';
@@ -55,6 +55,7 @@ const Main = () => {
           setChoosenOption={setChoosenOption}
           selectedOption={selectedOption}
           displayMenu={displayMenu}
+          selectedMenu={routeParams.id}
         />
       }
       ref={pageLayout}
@@ -71,6 +72,7 @@ const Main = () => {
           {routeParams.id === '9' && <WorkflowSettings />}
           {routeParams.id === '10' && <ImportExportSettings />}
           {routeParams.id === '11' && <UserDetails />}
+          {routeParams.id === '12' && <DeviceSettings />}
         </>
       }
       rightSidebarOpen={rightSidebarOpen}

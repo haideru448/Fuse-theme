@@ -38,25 +38,26 @@ import history from '@history';
 
 // import { useNavigate } from 'react-router-dom';
 
-export default function IconMenu() {
+export default function IconMenu({ selectedMenu }) {
+  console.log('selected menu here',selectedMenu)
   // const history = useNavigate();
   return (
     <Paper sx={{ width: '100%', height: 'auto' }}>
       <Box sx={{ background: '#D3D3D3', display: 'flex', justifyContent: 'center' }}>
-        <FormControl sx={{ m: 1, width: '80%' }} variant='outlined'>
-          <InputLabel htmlFor='outlined-adornment-search'>Search</InputLabel>
+        <FormControl sx={{ m: 1, width: '80%' }} variant="outlined">
+          <InputLabel htmlFor="outlined-adornment-search">Search</InputLabel>
           <OutlinedInput
-            id='outlined-adornment-search'
-            type='text'
-            value=''
+            id="outlined-adornment-search"
+            type="text"
+            value=""
             endAdornment={
-              <InputAdornment position='end'>
-                <IconButton aria-label='toggle password visibility' edge='end'>
+              <InputAdornment position="end">
+                <IconButton aria-label="toggle password visibility" edge="end">
                   <SearchIcon />
                 </IconButton>
               </InputAdornment>
             }
-            label='Search'
+            label="Search"
           />
         </FormControl>
       </Box>
@@ -64,9 +65,11 @@ export default function IconMenu() {
         <MenuItem
           onClick={() => {
             history.push('dashboards/settings/1');
-          }}>
+          }}
+          sx={{ background: selectedMenu === '1' && 'rgba(0,0,0,0.2)' }}
+        >
           <ListItemIcon>
-            <BusinessIcon fontSize='small' />
+            <BusinessIcon fontSize="small" />
           </ListItemIcon>
           <ListItemText>Company Details</ListItemText>
           {/* <Typography variant="body2" color="text.secondary">
@@ -74,9 +77,12 @@ export default function IconMenu() {
           </Typography> */}
         </MenuItem>
 
-        <MenuItem onClick={() => history.push('dashboards/settings/11')}>
+        <MenuItem
+          onClick={() => history.push('dashboards/settings/11')}
+          sx={{ background: selectedMenu === '11' && 'rgba(0,0,0,0.2)' }}
+        >
           <ListItemIcon>
-            <PersonIcon fontSize='small' />
+            <PersonIcon fontSize="small" />
           </ListItemIcon>
           <ListItemText>User Details</ListItemText>
           {/* <Typography variant="body2" color="text.secondary">
@@ -84,9 +90,12 @@ export default function IconMenu() {
           </Typography> */}
         </MenuItem>
 
-        <MenuItem onClick={() => history.push('dashboards/settings/2')}>
+        <MenuItem
+          onClick={() => history.push('dashboards/settings/2')}
+          sx={{ background: selectedMenu === '2' && 'rgba(0,0,0,0.2)' }}
+        >
           <ListItemIcon>
-            <LanguageIcon fontSize='small' />
+            <LanguageIcon fontSize="small" />
           </ListItemIcon>
           <ListItemText>Localization</ListItemText>
           {/* <Typography variant="body2" color="text.secondary">
@@ -94,9 +103,12 @@ export default function IconMenu() {
           </Typography> */}
         </MenuItem>
 
-        <MenuItem onClick={() => history.push('dashboards/settings/3')}>
+        <MenuItem
+          onClick={() => history.push('dashboards/settings/3')}
+          sx={{ background: selectedMenu === '3' && 'rgba(0,0,0,0.2)' }}
+        >
           <ListItemIcon>
-            <WalletIcon fontSize='small' />
+            <WalletIcon fontSize="small" />
           </ListItemIcon>
           <ListItemText>Online Payments</ListItemText>
           {/* <Typography variant="body2" color="text.secondary">
@@ -104,9 +116,12 @@ export default function IconMenu() {
           </Typography> */}
         </MenuItem>
 
-        <MenuItem onClick={() => history.push('dashboards/settings/4')}>
+        <MenuItem
+          onClick={() => history.push('dashboards/settings/4')}
+          sx={{ background: selectedMenu === '4' && 'rgba(0,0,0,0.2)' }}
+        >
           <ListItemIcon>
-            <PercentIcon fontSize='small' />
+            <PercentIcon fontSize="small" />
           </ListItemIcon>
           <ListItemText>Tax Settings</ListItemText>
           {/* <Typography variant="body2" color="text.secondary">
@@ -116,9 +131,12 @@ export default function IconMenu() {
 
         {/* product settings */}
 
-        <MenuItem onClick={() => history.push('dashboards/settings/5')}>
+        <MenuItem
+          onClick={() => history.push('dashboards/settings/5')}
+          sx={{ background: selectedMenu === '5' && 'rgba(0,0,0,0.2)' }}
+        >
           <ListItemIcon>
-            <ViewInArIcon fontSize='small' />
+            <ViewInArIcon fontSize="small" />
           </ListItemIcon>
           <ListItemText>Product Settings</ListItemText>
           {/* <Typography variant="body2" color="text.secondary">
@@ -126,9 +144,12 @@ export default function IconMenu() {
           </Typography> */}
         </MenuItem>
 
-        <MenuItem onClick={() => history.push('dashboards/settings/6')}>
+        <MenuItem
+          onClick={() => history.push('dashboards/settings/6')}
+          sx={{ background: selectedMenu === '6' && 'rgba(0,0,0,0.2)' }}
+        >
           <ListItemIcon>
-            <AccessTimeIcon fontSize='small' />
+            <AccessTimeIcon fontSize="small" />
           </ListItemIcon>
           <ListItemText>Task Settings</ListItemText>
           {/* <Typography variant="body2" color="text.secondary">
@@ -136,9 +157,12 @@ export default function IconMenu() {
           </Typography> */}
         </MenuItem>
 
-        <MenuItem onClick={() => history.push('dashboards/settings/7')}>
+        <MenuItem
+          onClick={() => history.push('dashboards/settings/7')}
+          sx={{ background: selectedMenu === '7' && 'rgba(0,0,0,0.2)' }}
+        >
           <ListItemIcon>
-            <InsertDriveFileIcon fontSize='small' />
+            <InsertDriveFileIcon fontSize="small" />
           </ListItemIcon>
           <ListItemText>Expense Settings</ListItemText>
           {/* <Typography variant="body2" color="text.secondary">
@@ -146,9 +170,12 @@ export default function IconMenu() {
           </Typography> */}
         </MenuItem>
 
-        <MenuItem onClick={() => history.push('dashboards/settings/9')}>
+        <MenuItem
+          onClick={() => history.push('dashboards/settings/9')}
+          sx={{ background: selectedMenu === '9' && 'rgba(0,0,0,0.2)' }}
+        >
           <ListItemIcon>
-            <CommitIcon fontSize='small' />
+            <CommitIcon fontSize="small" />
           </ListItemIcon>
           <ListItemText>Workflow Settings</ListItemText>
           {/* <Typography variant="body2" color="text.secondary">
@@ -156,9 +183,12 @@ export default function IconMenu() {
           </Typography> */}
         </MenuItem>
 
-        <MenuItem onClick={() => history.push('dashboards/settings/10')}>
+        <MenuItem
+          onClick={() => history.push('dashboards/settings/10')}
+          sx={{ background: selectedMenu === '10' && 'rgba(0,0,0,0.2)' }}
+        >
           <ListItemIcon>
-            <ImportExportIcon fontSize='small' />
+            <ImportExportIcon fontSize="small" />
           </ListItemIcon>
           <ListItemText>Import|Export</ListItemText>
           {/* <Typography variant="body2" color="text.secondary">
@@ -166,9 +196,12 @@ export default function IconMenu() {
           </Typography> */}
         </MenuItem>
 
-        <MenuItem>
+        <MenuItem
+          onClick={() => history.push('dashboards/settings/12')}
+          sx={{ background: selectedMenu === '12' && 'rgba(0,0,0,0.2)' }}
+        >
           <ListItemIcon>
-            <LaptopChromebookIcon fontSize='small' />
+            <LaptopChromebookIcon fontSize="small" />
           </ListItemIcon>
           <ListItemText>Device Settings</ListItemText>
           {/* <Typography variant="body2" color="text.secondary">
@@ -178,7 +211,7 @@ export default function IconMenu() {
 
         <MenuItem>
           <ListItemIcon>
-            <PersonPinIcon fontSize='small' />
+            <PersonPinIcon fontSize="small" />
           </ListItemIcon>
           <ListItemText>Account Management</ListItemText>
           {/* <Typography variant="body2" color="text.secondary">
@@ -198,7 +231,7 @@ export default function IconMenu() {
 
         <MenuItem>
           <ListItemIcon>
-            <BrushIcon fontSize='small' />
+            <BrushIcon fontSize="small" />
           </ListItemIcon>
           <ListItemText>Invoice Design</ListItemText>
           {/* <Typography variant="body2" color="text.secondary">
@@ -208,7 +241,7 @@ export default function IconMenu() {
 
         <MenuItem>
           <ListItemIcon>
-            <TitleIcon fontSize='small' />
+            <TitleIcon fontSize="small" />
           </ListItemIcon>
           <ListItemText>Custom Fields</ListItemText>
           {/* <Typography variant="body2" color="text.secondary">
@@ -218,7 +251,7 @@ export default function IconMenu() {
 
         <MenuItem>
           <ListItemIcon>
-            <FormatListNumberedIcon fontSize='small' />
+            <FormatListNumberedIcon fontSize="small" />
           </ListItemIcon>
           <ListItemText>Generated Numbers</ListItemText>
           {/* <Typography variant="body2" color="text.secondary">
@@ -226,9 +259,12 @@ export default function IconMenu() {
           </Typography> */}
         </MenuItem>
         {/* email settings */}
-        <MenuItem onClick={() => history.push('dashboards/settings/8')}>
+        <MenuItem
+          onClick={() => history.push('dashboards/settings/8')}
+          sx={{ background: selectedMenu === '8' && 'rgba(0,0,0,0.2)' }}
+        >
           <ListItemIcon>
-            <EmailIcon fontSize='small' />
+            <EmailIcon fontSize="small" />
           </ListItemIcon>
           <ListItemText>Email Settings</ListItemText>
           {/* <Typography variant="body2" color="text.secondary">
@@ -238,7 +274,7 @@ export default function IconMenu() {
 
         <MenuItem>
           <ListItemIcon>
-            <Cloud fontSize='small' />
+            <Cloud fontSize="small" />
           </ListItemIcon>
           <ListItemText>Client Portal</ListItemText>
           {/* <Typography variant="body2" color="text.secondary">
@@ -248,7 +284,7 @@ export default function IconMenu() {
 
         <MenuItem>
           <ListItemIcon>
-            <TouchAppIcon fontSize='small' />
+            <TouchAppIcon fontSize="small" />
           </ListItemIcon>
           <ListItemText>Template and Reminders</ListItemText>
           {/* <Typography variant="body2" color="text.secondary">
@@ -258,7 +294,7 @@ export default function IconMenu() {
 
         <MenuItem>
           <ListItemIcon>
-            <JoinInnerIcon fontSize='small' />
+            <JoinInnerIcon fontSize="small" />
           </ListItemIcon>
           <ListItemText>Group Settings</ListItemText>
           {/* <Typography variant="body2" color="text.secondary">
@@ -267,7 +303,7 @@ export default function IconMenu() {
         </MenuItem>
         <MenuItem>
           <ListItemIcon>
-            <LocalMallIcon fontSize='small' />
+            <LocalMallIcon fontSize="small" />
           </ListItemIcon>
           <ListItemText>Subscriptions</ListItemText>
           {/* <Typography variant="body2" color="text.secondary">
@@ -276,7 +312,7 @@ export default function IconMenu() {
         </MenuItem>
         <MenuItem>
           <ListItemIcon>
-            <GroupIcon fontSize='small' />
+            <GroupIcon fontSize="small" />
           </ListItemIcon>
           <ListItemText>User Management</ListItemText>
           {/* <Typography variant="body2" color="text.secondary">

@@ -145,7 +145,7 @@ export default function OutlinedCard() {
           </CardContent>
         </Card>
 
-        <Button variant="contained" fullWidth sx={{ margin: '20px 10px 20px 0',pl:'20px',pr:'20px' }}>
+        <Button variant="contained" fullWidth sx={{ margin: '20px 30px 20px 30px' }}>
           <SettingsIcon sx={{ mr: '10px' }} />
           Confirm Gateways
         </Button>
