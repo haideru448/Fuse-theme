@@ -17,6 +17,8 @@ import WorkflowSettings from './tabsPanel/workflowSettings';
 import ImportExportSettings from './tabsPanel/importExport';
 import UserDetails from './tabsPanel/userDetails';
 import DeviceSettings from './tabsPanel/deviceSettings';
+import ClientPortal from './advanceSettings/clientPortal';
+import CustomFields from './advanceSettings/customFields';
 
 // import ContactsSidebarContent from './ContactsSidebarContent';
 // import ContactsHeader from '../../apps/contacts';
@@ -61,6 +63,8 @@ const Main = () => {
       ref={pageLayout}
       rightSidebarContent={
         <>
+          {/* Basic Settings */}
+
           {routeParams.id === '1' && <CompanyDetailsPanel />}
           {routeParams.id === '3' && <OnlinePayments />}
           {routeParams.id === '4' && <TaxSettings />}
@@ -73,6 +77,11 @@ const Main = () => {
           {routeParams.id === '10' && <ImportExportSettings />}
           {routeParams.id === '11' && <UserDetails />}
           {routeParams.id === '12' && <DeviceSettings />}
+
+          {/* Advanced Settings */}
+
+          {routeParams.id === '14' && <CustomFields />}
+          {routeParams.id === '17' && <ClientPortal />}
         </>
       }
       rightSidebarOpen={rightSidebarOpen}

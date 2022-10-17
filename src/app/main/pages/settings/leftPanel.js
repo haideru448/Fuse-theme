@@ -39,7 +39,7 @@ import history from '@history';
 // import { useNavigate } from 'react-router-dom';
 
 export default function IconMenu({ selectedMenu }) {
-  console.log('selected menu here',selectedMenu)
+  console.log('selected menu here', selectedMenu)
   // const history = useNavigate();
   return (
     <Paper sx={{ width: '100%', height: 'auto' }}>
@@ -272,7 +272,8 @@ export default function IconMenu({ selectedMenu }) {
           </Typography> */}
         </MenuItem>
 
-        <MenuItem>
+        <MenuItem onClick={() => history.push('dashboards/settings/17')}
+          sx={{ background: selectedMenu === '17' && 'rgba(0,0,0,0.2)' }}>
           <ListItemIcon>
             <Cloud fontSize="small" />
           </ListItemIcon>
