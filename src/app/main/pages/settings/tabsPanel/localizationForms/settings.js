@@ -42,13 +42,10 @@ const listFollowingTextStyles = {
 
 const label = { inputProps: { 'aria-label': 'Switch demo' } };
 
-
-
 const card = (
   <>
     <CardContent>
-      
-    <FormControl variant="standard" sx={{ width: '100%', mb: '20px' }}>
+      <FormControl variant="standard" sx={{ width: '100%', mb: '20px' }}>
         <InputLabel id="demo-simple-select-standard-label">First Month of the Year</InputLabel>
         <Select
           labelId="demo-simple-select-standard-label"
@@ -63,7 +60,6 @@ const card = (
           <MenuItem value={30}>Thirty</MenuItem>
         </Select>
       </FormControl>
-      
     </CardContent>
     {/* <CardActions>
       <Button size='small'>Learn More</Button>

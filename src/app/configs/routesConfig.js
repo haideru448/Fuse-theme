@@ -12,6 +12,8 @@ import pagesConfigs from '../main/pages/pagesConfigs';
 import authRoleExamplesConfigs from '../main/auth/authRoleExamplesConfigs';
 import DocumentationConfig from '../main/documentation/DocumentationConfig';
 import SettingsPage from '../main/pages/settings'
+import EditInvoicePage from '../main/pages/settings/EditInvoicePage'
+
 
 const routeConfigs = [
   ...appsConfigs,
@@ -40,6 +42,12 @@ const routes = [
   {
     path: '/dashboards/settings/:id',
     element: <SettingsPage />,
+    auth: settingsConfig.defaultAuth,
+  },
+
+  {
+    path: '/dashboards/edit-invoice/:id',
+    element: <EditInvoicePage />,
     auth: settingsConfig.defaultAuth,
   },
   {

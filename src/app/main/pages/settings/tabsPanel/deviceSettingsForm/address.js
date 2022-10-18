@@ -9,7 +9,6 @@ import FormLabel from '@mui/material/FormLabel';
 import Typography from '@mui/material/Typography';
 import Switch from '@mui/material/Switch';
 
-
 const label = { inputProps: { 'aria-label': 'Switch demo' } };
 
 // const card2 = (
@@ -100,8 +99,8 @@ export default function OutlinedCard() {
 
       <Card variant="outlined" sx={{ p: '10px', pl: '30px', mt: '30px' }}>
         <Typography variant="h5">
-          Persist UI{' '}<br/>
-          <span style={{fontSize:'13px'}}>
+          Persist UI <br />
+          <span style={{ fontSize: '13px' }}>
             Save UI state Locally to enable the app to start at the last Location, disabling may
             improve performance
           </span>
@@ -109,31 +108,22 @@ export default function OutlinedCard() {
         <Switch {...label} defaultChecked />
 
         <Typography variant="h5">
-          Persist UI{' '}<br/>
-          <span style={{fontSize:'13px'}}>
+          Persist UI <br />
+          <span style={{ fontSize: '13px' }}>
             Save UI state Locally to enable the app to start at the last Location, disabling may
             improve performance
           </span>
         </Typography>
         <Switch {...label} defaultChecked />
-
       </Card>
 
       <Card variant="outlined" sx={{ p: '10px', pl: '30px', mt: '30px' }}>
         <Typography variant="h5">
-          Refresh Data{' '}<br/>
-          <span style={{fontSize:'13px'}}>
-          Last Updated: a minute ago
-          </span>
+          Refresh Data <br />
+          <span style={{ fontSize: '13px' }}>Last Updated: a minute ago</span>
         </Typography>
-        
 
-        <Typography variant="h5">
-          End All Sessions
-          
-        </Typography>
-       
-
+        <Typography variant="h5">End All Sessions</Typography>
       </Card>
     </Box>
   );

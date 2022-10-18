@@ -229,7 +229,9 @@ export default function IconMenu({ selectedMenu }) {
           </Typography> */}
         </MenuItem>
 
-        <MenuItem>
+        <MenuItem onClick={() => history.push('dashboards/settings/18')}
+        sx={{ background: selectedMenu === '12' && 'rgba(0,0,0,0.2)' }}
+        >
           <ListItemIcon>
             <BrushIcon fontSize="small" />
           </ListItemIcon>

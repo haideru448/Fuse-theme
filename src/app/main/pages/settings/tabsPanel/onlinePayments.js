@@ -1,33 +1,49 @@
 import React, { useState } from 'react';
 import Box from '@mui/material/Box';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
-import Select from '@mui/material/Select';
 import Button from '@mui/material/Button';
-import SettingsIcon from '@mui/icons-material/Settings';
 // import Box from '@mui/material/Box';
-import IconButton from '@mui/material/IconButton';
+import Tabs from '@mui/material/Tabs';
+import Tab from '@mui/material/Tab';
 
 import { styled } from '@mui/material/styles';
 
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemAvatar from '@mui/material/ListItemAvatar';
-import ListItemText from '@mui/material/ListItemText';
-import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
-import EmailIcon from '@mui/icons-material/Email';
-import Switch from '@mui/material/Switch';
 import history from '@history';
+import Stripe from './onlinePaymentForms/stripeGateway';
+import Mollie from './onlinePaymentForms/mollieGateway';
+import Paypal  from './onlinePaymentForms/paypalGateway';
+import Payoneer  from './onlinePaymentForms/payoneerGateway';
+import Razor  from './onlinePaymentForms/razorpayGateway';
 
-const bull = (
-  <Box component="span" sx={{ display: 'inline-block', mx: '2px', transform: 'scale(0.8)' }}>
-    •
-  </Box>
-);
+
+
+
+
+function TabPanel(props) {
+  const { children, value, index, ...other } = props;
+
+  return (
+    <div
+      role="tabpanel"
+      hidden={value !== index}
+      id={`simple-tabpanel-${index}`}
+      aria-labelledby={`simple-tab-${index}`}
+      {...other}
+    >
+      {value === index && (
+        <Box sx={{ p: 3 }}>
+          <Typography>{children}</Typography>
+        </Box>
+      )}
+    </div>
+  );
+}
+function a11yProps(index) {
+  return {
+    id: `action-tab-${index}`,
+    'aria-controls': `action-tabpanel-${index}`,
+  };
+}
 
 const label = { inputProps: { 'aria-label': 'Switch demo' } };
 
@@ -61,95 +77,58 @@ export default function OutlinedCard() {
   const [dense, setDense] = React.useState(false);
   const [secondary, setSecondary] = React.useState(false);
 
+  const [value, setValue] = React.useState(0);
+
   const handleChange = (event) => {
     setAge(event.target.value);
+  };
+
+  const handleChangeTab = (event, newValue) => {
+    setValue(newValue);
+  };
+
+  const handleChangeIndex = (index) => {
+    setValue(index);
   };
   return (
     <Box sx={{ width: '100%' }}>
       <Box sx={{ background: '#D3D3D3' }}>
         <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
-          <Typography
-            sx={{ mb: '20px', fontSize: '20px', paddingLeft: '20px', paddingTop: '10px' }}
-          >
-            Online Payments
+          <Typography sx={{ mb: '20px', fontSize: '20px', pl: '20px', pt: '20px' }}>
+            Payment Gateway
           </Typography>
           <Box>
             <Button>Save</Button>
             <Button onClick={() => history.push('dashboards/settings')}>Cancel</Button>
           </Box>
         </Box>
+
+        <Tabs value={value} onChange={handleChangeTab} aria-label="basic tabs example">
+          <Tab label="Stripe" {...a11yProps(0)} />
+          <Tab label="Mollie" {...a11yProps(1)} />
+          <Tab label="Paypal" {...a11yProps(2)} />
+          <Tab label="Razor Pay" {...a11yProps(3)} />
+          <Tab label="Payoneer" {...a11yProps(4)} />
+        </Tabs>
       </Box>
-      <Box sx={{ width: '100%' }}>
-        <Card variant="outlined" sx={{ m: '20px 20px' }}>
-          {' '}
-          <CardContent>
-            <FormControl variant="standard" sx={{ width: '100%', mb: '20px' }}>
-              <InputLabel id="demo-simple-select-standard-label">Auto Bill</InputLabel>
-              <Select
-                labelId="demo-simple-select-standard-label"
-                id="demo-simple-select-standard"
-                value={age}
-                onChange={handleChange}
-                label="Age"
-              >
-                <MenuItem value="">
-                  <em>None</em>
-                </MenuItem>
-                <MenuItem value={10}>Ten</MenuItem>
-                <MenuItem value={20}>Twenty</MenuItem>
-                <MenuItem value={30}>Thirty</MenuItem>
-              </Select>
-            </FormControl>
+      <TabPanel value={value} index={0}>
+        <Stripe />
+      </TabPanel>
+      <TabPanel value={value} index={1}>
+        <Mollie />
+      </TabPanel>
 
-            <FormControl variant="standard" sx={{ width: '100%', mb: '20px' }}>
-              <InputLabel id="demo-simple-select-standard-label">Invoice Payment Terms</InputLabel>
-              <Select
-                labelId="demo-simple-select-standard-label"
-                id="demo-simple-select-standard"
-                value={age}
-                onChange={handleChange}
-                label="Age"
-              >
-                <MenuItem value="">
-                  <em>None</em>
-                </MenuItem>
-                <MenuItem value={10}>Ten</MenuItem>
-                <MenuItem value={20}>Twenty</MenuItem>
-                <MenuItem value={30}>Thirty</MenuItem>
-              </Select>
-            </FormControl>
-
-            <Grid item xs={12} md={6}>
-              <Demo>
-                <List dense={dense}>
-                  {generate(
-                    <ListItem
-                      secondaryAction={
-                        <IconButton edge="end" aria-label="delete">
-                          <Switch {...label} defaultChecked />
-                        </IconButton>
-                      }
-                    >
-                      <ListItemAvatar>
-                        <EmailIcon />
-                      </ListItemAvatar>
-                      <ListItemText
-                        primary="Allow Over Payment"
-                        secondary={secondary ? 'Secondary text' : null}
-                      />
-                    </ListItem>
-                  )}
-                </List>
-              </Demo>
-            </Grid>
-          </CardContent>
-        </Card>
-
-        <Button variant="contained" fullWidth sx={{ margin: '20px 30px 20px 30px' }}>
-          <SettingsIcon sx={{ mr: '10px' }} />
-          Confirm Gateways
-        </Button>
-      </Box>
+      <TabPanel value={value} index={2}>
+        <Paypal />
+      </TabPanel>
+      
+      <TabPanel value={value} index={3}>
+        <Payoneer />
+      </TabPanel>
+      
+      <TabPanel value={value} index={4}>
+        <Razor />
+      </TabPanel>
     </Box>
   );
 }

@@ -19,6 +19,8 @@ import UserDetails from './tabsPanel/userDetails';
 import DeviceSettings from './tabsPanel/deviceSettings';
 import ClientPortal from './advanceSettings/clientPortal';
 import CustomFields from './advanceSettings/customFields';
+import InvoiceDesign from './tabsPanel/InvoiceSettings';
+
 
 // import ContactsSidebarContent from './ContactsSidebarContent';
 // import ContactsHeader from '../../apps/contacts';
@@ -82,6 +84,9 @@ const Main = () => {
 
           {routeParams.id === '14' && <CustomFields />}
           {routeParams.id === '17' && <ClientPortal />}
+          {routeParams.id === '18' && <InvoiceDesign />}
+
+          
         </>
       }
       rightSidebarOpen={rightSidebarOpen}
